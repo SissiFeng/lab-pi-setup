@@ -271,7 +271,7 @@ If you're stuck, reach out to:
 
 - **Lab Lead:** _[name]_ — _[email/slack]_
 - **IT Support:** _[name]_ — _[email/slack]_
-- **This repo:** https://github.com/theonlyhennygod/lab-pi-setup/issues
+- **This repo:** https://github.com/SissiFeng/lab-pi-setup/issues
 
 ---
 
