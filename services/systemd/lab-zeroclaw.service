@@ -1,0 +1,18 @@
+[Unit]
+Description=NeverOT ZeroClaw AI Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/zeroclaw/target/release/zeroclaw run --config /home/pi/lab-config.yaml
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=15
+Environment=HOME=/home/pi
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

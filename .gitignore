@@ -1,0 +1,25 @@
+# Data and logs (generated on the Pi)
+lab-data/
+
+# Real config (has secrets) — use lab-config.example.yaml as template
+lab-config.yaml
+
+# Python
+*.pyc
+__pycache__/
+*.egg-info/
+lab-env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Rust build artifacts
+zeroclaw/target/
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

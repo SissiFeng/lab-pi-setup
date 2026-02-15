@@ -1,0 +1,16 @@
+[Unit]
+Description=NeverOT Lab Bridge API
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/lab-env/bin/python /home/pi/lab-pi-setup/services/lab_bridge.py
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

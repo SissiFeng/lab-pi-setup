@@ -1,0 +1,16 @@
+[Unit]
+Description=NeverOT Lab Sensor Reader
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/lab-env/bin/python /home/pi/lab-pi-setup/services/sensor_reader.py
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,37 @@
+# ============================================
+# 🔬 Lab Pi Configuration
+# ============================================
+# Copy this file to ~/lab-config.yaml and fill in your values:
+#   cp lab-config.example.yaml ~/lab-config.yaml
+#
+# Ask your lab lead if you're unsure about any values.
+
+lab_name: "SDL-1"
+
+# Main NeverOT server on the same network (IP:port)
+neverot_server: "192.168.1.100:8000"
+
+# ZeroClaw AI agent settings
+zeroclaw_api_key: "sk-..."        # Get this from your lab lead
+zeroclaw_provider: "openrouter"   # AI provider (openrouter, openai, etc.)
+
+# 📷 Camera settings
+camera:
+  device: "/dev/video0"           # USB camera device path
+  interval_seconds: 30            # How often to capture a frame
+  keep_hours: 24                  # How long to keep images (hours)
+  upload_to_server: false         # POST images to NeverOT server?
+
+# 🌡️ Sensor settings
+sensors:
+  ph_enabled: true
+  temp_enabled: true
+  read_interval_seconds: 10       # How often to read sensors
+  ph_range: [4.0, 10.0]          # Alert if pH outside this range
+  temp_range: [15.0, 45.0]       # Alert if temp (°C) outside this range
+  simulate: false                 # Use simulated data if no hardware attached
+
+# 🔔 Alert settings (optional — leave blank to disable)
+alerts:
+  telegram_chat_id: ""
+  email: ""
