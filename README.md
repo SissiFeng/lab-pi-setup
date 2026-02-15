@@ -12,23 +12,27 @@ The Raspberry Pi is the "eyes and ears" of our lab bench. It sits next to the OT
 ┌─────────────────────────────────────────────────────────┐
 │                    NeverOT Lab Bench                     │
 │                                                         │
-│   📷 USB Camera ──┐                                     │
-│   🌡️ pH Sensor ───┤                                     │
-│   🌡️ Temp Sensor ──┼──▶  🍓 Raspberry Pi (lab-pi)      │
-│   🤖 OT-2 Robot ──┤        │                            │
-│   ⚡ Squidstat ────┤        │  ZeroClaw AI agent         │
-│   🔌 PLC Relays ──┘        │  monitors everything       │
-│                             │                            │
-│                             ▼                            │
-│                    💻 NeverOT Server                     │
-│                    (Mac/PC on same WiFi)                 │
+│   💻 Laptop (Brain 🧠)          🍓 Raspberry Pi (Eye 👁️) │
+│   ├── NeverOT server            ├── 📷 USB Camera       │
+│   ├── Nexus (optimization)      ├── 🌡️ pH Sensor        │
+│   ├── 🤖 OT-2 (USB)            ├── 🌡️ Temp Sensor      │
+│   ├── ⚡ Squidstat (USB)        ├── 🤖 ZeroClaw agent   │
+│   └── 🔌 PLC Relays (USB)      └── 🔔 Watchdog         │
+│                                         │               │
+│          ◄── same WiFi ──►              │               │
+│                                         ▼               │
+│                              Alerts if laptop goes down │
+│                              Sends photos + sensor data │
 └─────────────────────────────────────────────────────────┘
 ```
 
+The **laptop** controls all instruments (OT-2, Squidstat, PLC) via USB.
+The **Pi** is an independent monitor — the lab's eyes, ears, and watchdog.
+
 - **📷 Camera** — Takes a photo every 30 seconds so you can check experiments remotely
 - **🌡️ Sensors** — Reads pH and temperature every 10 seconds, alerts if something's wrong
-- **🔗 Hardware Bridge** — Talks to the OT-2, Squidstat potentiostat, and relay controller
 - **🤖 ZeroClaw** — Lightweight AI agent that monitors, sends alerts, and does edge processing
+- **🔔 Watchdog** — Pings the laptop; if it goes down, the Pi sends you an alert
 - **🌐 Web API** — Lets the main server pull data from the Pi over the network
 
 ---
